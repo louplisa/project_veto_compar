@@ -1,0 +1,65 @@
+version: "3.8"
+services:
+  mysql_db:
+    image: mysql
+    container_name: db_docker_symfony
+    restart: always
+    volumes:
+      - db-data:/var/lib/mysql
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    networks:
+      - dev
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: phpmyadmin_docker_symfony
+    restart: always
+    links:
+      - mysql_db
+    depends_on:
+      - mysql_db
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: mysql_db
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+    networks:
+      - dev
+
+  maildev:
+    image: maildev/maildev
+    restart: always
+    environment:
+      - MAILDEV_WEB_PORT=1080
+      - MAILDEV_SMTP_PORT=1025
+    ports:
+      - "8080:1080"
+      - "8025:1025"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+
+  www:
+    build: php
+    container_name: www_docker_symfony
+    ports:
+      - "8741:80"
+    volumes:
+      - ./php/vhosts:/etc/apache2/sites-enabled
+      - ./:/var/www
+    restart: always
+    networks:
+      - dev
+
+networks:
+  dev:
+
+volumes:
+  db-data:
