@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -23,8 +24,8 @@ class DashboardController extends AbstractDashboardController
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
-         $url = $this->adminUrlGenerator->setController(UserCrudController::class)->generateUrl();
-         return $this->redirect($url);
+        $url = $this->adminUrlGenerator->setController(UserCrudController::class)->generateUrl();
+        return $this->redirect($url);
 
         // Option 2. You can make your dashboard redirect to different pages depending on the user
         //
@@ -47,6 +48,6 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
     }
 }
