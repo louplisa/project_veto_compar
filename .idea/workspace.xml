@@ -7,13 +7,15 @@
     <list default="true" id="96d0f376-672f-4bbb-8242-fb00ec931676" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veto_compar/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/composer.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veto_compar/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veto_compar/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/migrations/Version20230723185044.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/src/Entity/Test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veto_compar/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/templates/base.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -164,6 +166,8 @@
       <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/uid" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/polyfill-uuid" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/fakerphp/faker" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -205,6 +209,7 @@
       <updated>1718291239493</updated>
       <workItem from="1718291240626" duration="1697000" />
       <workItem from="1718369725065" duration="7189000" />
+      <workItem from="1718886974228" duration="1707000" />
     </task>
     <servers />
   </component>

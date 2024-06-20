@@ -1,5 +1,10 @@
 FROM php:8.2-apache
 
+RUN apt-get update && apt-get install -y nodejs npm
+
+# install application
+COPY     . /usr/app
+
 RUN a2enmod rewrite
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf

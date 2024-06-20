@@ -145,6 +145,8 @@
       <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/uid" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/polyfill-uuid" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/easycorp/easyadmin-bundle" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/fakerphp/faker" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />
