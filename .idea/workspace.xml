@@ -5,17 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="96d0f376-672f-4bbb-8242-fb00ec931676" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/.env" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/veto_compar/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/public/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/templates/structure/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/templates/structure/navbar.html.twig" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,6 +164,8 @@
       <path value="$PROJECT_DIR$/veto_compar/vendor/easycorp/easyadmin-bundle" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/zenstruck/assert" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/zenstruck/foundry" />
     </include_path>
   </component>
   <component name="ProjectColorInfo">{
@@ -209,7 +207,11 @@
       <updated>1718291239493</updated>
       <workItem from="1718291240626" duration="1697000" />
       <workItem from="1718369725065" duration="7189000" />
-      <workItem from="1718886974228" duration="1707000" />
+      <workItem from="1718886974228" duration="2422000" />
+      <workItem from="1719320425662" duration="2714000" />
+      <workItem from="1719405763224" duration="8132000" />
+      <workItem from="1719492096841" duration="5660000" />
+      <workItem from="1719578446568" duration="2556000" />
     </task>
     <servers />
   </component>

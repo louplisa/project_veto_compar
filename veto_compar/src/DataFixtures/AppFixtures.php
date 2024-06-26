@@ -3,6 +3,8 @@
 namespace App\DataFixtures;
 
 use App\Entity\User;
+use App\Factory\AddressFactory;
+use App\Factory\UserFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -22,28 +24,19 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        $this->faker = Factory::create('fr_FR');
-        for ($i = 0 ; $i < 5; $i++) {
-            if ($i === 1) {
-                $user = new User();
-                $user->setEmail('ferre.aurelie@wanadoo.fr');
-                $plaintextPassword = 'password';
-                $user->setPassword($this->passwordHasher->hashPassword($user, $plaintextPassword));
-                $user->setFirstname('Aurélie');
-                $user->setLastname('Ferré');
-                $user->setRoles(['ROLE_ADMIN', 'ROLE_USER']);
-            } else {
-                $user = new User();
-                $user->setEmail($this->faker->email);
-                $plaintextPassword = 'password';
-                $user->setPassword($this->passwordHasher->hashPassword($user, $plaintextPassword));
-                $user->setFirstname($this->faker->firstName);
-                $user->setLastname($this->faker->lastName);
-            }
+        UserFactory::createOne([
+            'email' => 'ferre.aurelie@wanadoo.fr',
+            'firstname' => 'Aurélie',
+            'lastname' => 'Ferré',
+            'password' => 'password',
+            'roles' => ['ROLE_ADMIN', 'ROLE_USER'],
+        ]);
 
-            $manager->persist($user);
-        }
-
-        $manager->flush();
+        UserFactory::createMany(10);
+        AddressFactory::createMany(11, function () {
+            return [
+                'user' => UserFactory::random()
+            ];
+        });
     }
 }

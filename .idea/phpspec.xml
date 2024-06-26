@@ -14,6 +14,9 @@
       <PhpSpecSuiteConfiguration>
         <option name="myPath" value="$PROJECT_DIR$/veto_compar" />
       </PhpSpecSuiteConfiguration>
+      <PhpSpecSuiteConfiguration>
+        <option name="myPath" value="$PROJECT_DIR$/veto_compar" />
+      </PhpSpecSuiteConfiguration>
     </suites>
   </component>
 </project>

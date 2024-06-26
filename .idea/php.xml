@@ -147,6 +147,8 @@
       <path value="$PROJECT_DIR$/veto_compar/vendor/easycorp/easyadmin-bundle" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/symfony/webpack-encore-bundle" />
       <path value="$PROJECT_DIR$/veto_compar/vendor/fakerphp/faker" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/zenstruck/assert" />
+      <path value="$PROJECT_DIR$/veto_compar/vendor/zenstruck/foundry" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="8.1" />

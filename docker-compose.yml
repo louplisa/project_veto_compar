@@ -33,17 +33,13 @@ services:
 
   maildev:
     image: maildev/maildev
+    container_name: maildev_docker_symfony
+    command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
     restart: always
-    environment:
-      - MAILDEV_WEB_PORT=1080
-      - MAILDEV_SMTP_PORT=1025
     ports:
-      - "8081:1080"
-      - "8025:1025"
-    logging:
-      driver: "json-file"
-      options:
-        max-size: "1m"
+      - "8081:80"
+    networks:
+      - dev
 
   www:
     build: php
@@ -53,6 +49,7 @@ services:
     volumes:
       - ./php/vhosts:/etc/apache2/sites-enabled
       - ./:/var/www
+      - ./php/php.ini:/usr/local/etc/php/php.ini
     restart: always
     networks:
       - dev
