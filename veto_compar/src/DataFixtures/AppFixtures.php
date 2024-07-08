@@ -5,6 +5,7 @@ namespace App\DataFixtures;
 use App\Entity\User;
 use App\Factory\AddressFactory;
 use App\Factory\UserFactory;
+use App\Factory\VeterinaryClinicFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Faker\Factory;
@@ -24,6 +25,8 @@ class AppFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
+        AddressFactory::createMany(21);
+
         UserFactory::createOne([
             'email' => 'ferre.aurelie@wanadoo.fr',
             'firstname' => 'Aurélie',
@@ -32,10 +35,16 @@ class AppFixtures extends Fixture
             'roles' => ['ROLE_ADMIN', 'ROLE_USER'],
         ]);
 
-        UserFactory::createMany(10);
-        AddressFactory::createMany(11, function () {
+        UserFactory::createMany(10, function () {
             return [
-                'user' => UserFactory::random()
+                'address' => AddressFactory::random()
+            ];
+        });
+
+        VeterinaryClinicFactory::createMany(10, function () {
+            return [
+                'address' => AddressFactory::createOne(),
+                'owner' => [UserFactory::random()],
             ];
         });
     }

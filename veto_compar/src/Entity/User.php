@@ -41,9 +41,19 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'user', targetEntity: Address::class)]
     private Collection $addresses;
 
+    /**
+     * @var Collection<int, VeterinaryClinic>
+     */
+    #[ORM\ManyToMany(targetEntity: VeterinaryClinic::class, mappedBy: 'owner')]
+    private Collection $veterinaryClinics;
+
+    #[ORM\ManyToOne(inversedBy: 'users')]
+    private ?Address $address = null;
+
     public function __construct()
     {
         $this->addresses = new ArrayCollection();
+        $this->veterinaryClinics = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -140,33 +150,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    /**
-     * @return Collection<int, Address>
-     */
-    public function getAddresses(): Collection
+    public function getAddress(): ?Address
     {
-        return $this->addresses;
+        return $this->address;
     }
 
-    public function addAddress(Address $address): static
+    public function setAddress(?Address $address): static
     {
-        if (!$this->addresses->contains($address)) {
-            $this->addresses->add($address);
-            $address->setUser($this);
-        }
+        $this->address = $address;
 
         return $this;
     }
-
-    public function removeAddress(Address $address): static
-    {
-        if ($this->addresses->removeElement($address)) {
-            // set the owning side to null (unless already changed)
-            if ($address->getUser() === $this) {
-                $address->setUser(null);
-            }
-        }
-
-        return $this;
-    }
+    
 }

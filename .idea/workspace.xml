@@ -6,12 +6,13 @@
   <component name="ChangeListManager">
     <list default="true" id="96d0f376-672f-4bbb-8242-fb00ec931676" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/php/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/php/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/.env" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/public/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/public/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/veto_compar/templates/structure/navbar.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/templates/structure/navbar.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/migrations/Version20240614125757.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/migrations/Version20240626124346.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/src/DataFixtures/AppFixtures.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/src/Entity/Address.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/src/Entity/Address.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/src/Factory/AddressFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/src/Factory/AddressFactory.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/veto_compar/src/Factory/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/veto_compar/src/Factory/UserFactory.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -211,7 +212,9 @@
       <workItem from="1719320425662" duration="2714000" />
       <workItem from="1719405763224" duration="8132000" />
       <workItem from="1719492096841" duration="5660000" />
-      <workItem from="1719578446568" duration="2556000" />
+      <workItem from="1719578446568" duration="3213000" />
+      <workItem from="1720010387971" duration="4514000" />
+      <workItem from="1720443000480" duration="1513000" />
     </task>
     <servers />
   </component>

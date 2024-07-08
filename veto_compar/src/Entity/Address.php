@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\AddressRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
@@ -26,8 +28,19 @@ class Address
     #[ORM\Column(length: 255)]
     private ?string $city = null;
 
-    #[ORM\ManyToOne(inversedBy: 'addresses')]
-    private ?User $user = null;
+    #[ORM\OneToOne(mappedBy: 'address', cascade: ['persist', 'remove'])]
+    private ?VeterinaryClinic $veterinaryClinic = null;
+
+    /**
+     * @var Collection<int, User>
+     */
+    #[ORM\OneToMany(mappedBy: 'address', targetEntity: User::class)]
+    private Collection $users;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -82,15 +95,51 @@ class Address
         return $this;
     }
 
-    public function getUser(): ?User
+    public function getVeterinaryClinic(): ?VeterinaryClinic
     {
-        return $this->user;
+        return $this->veterinaryClinic;
     }
 
-    public function setUser(?User $user): static
+    public function setVeterinaryClinic(VeterinaryClinic $veterinaryClinic): static
     {
-        $this->user = $user;
+        // set the owning side of the relation if necessary
+        if ($veterinaryClinic->getAddress() !== $this) {
+            $veterinaryClinic->setAddress($this);
+        }
+
+        $this->veterinaryClinic = $veterinaryClinic;
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->setAddress($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            // set the owning side to null (unless already changed)
+            if ($user->getAddress() === $this) {
+                $user->setAddress(null);
+            }
+        }
+
+        return $this;
+    }
+
 }

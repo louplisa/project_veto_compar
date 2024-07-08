@@ -28,7 +28,6 @@ final class AddressFactory extends PersistentProxyObjectFactory
             'street' => self::faker()->streetAddress(),
             'complement' => self::faker()->sentence(3),
             'zipCode' => (int) self::faker()->postcode(),
-            'user' => UserFactory::new(),
         ];
     }
 
