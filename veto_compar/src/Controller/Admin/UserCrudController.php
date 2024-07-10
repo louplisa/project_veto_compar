@@ -3,25 +3,31 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\KeyValueStore;
 use EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
+use Symfony\Component\Form\{FormBuilderInterface, FormEvents};
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
-use EasyCorp\Bundle\EasyAdminBundle\Dto\EntityDto;
-use Symfony\Component\Form\{FormBuilderInterface, FormEvents};
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Translation\TranslatableMessage;
 
 class UserCrudController extends AbstractCrudController
 {
     public function __construct(
         public UserPasswordHasherInterface $userPasswordHasher
-    ) {}
+    )
+    {
+    }
+
     public static function getEntityFqcn(): string
     {
         return User::class;
@@ -32,17 +38,19 @@ class UserCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInPlural('Utilisateurs')
             ->setEntityLabelInSingular('Utilisateur')
-            ->setPageTitle('index', "VetoCompar - Administration des utilisateurs");
+            ->setPageTitle('index', "VetoCompar - Administration des utilisateurs")
+            ->setPageTitle('edit', "Editer l'utilisateur")
+            ;
     }
 
     public function configureFields(string $pageName): iterable
     {
         $fields = [
             IdField::new('id')->hideOnForm(),
-            TextField::new('firstname'),
-            TextField::new('lastname'),
+            TextField::new('firstname', new TranslatableMessage('Prénom')),
+            TextField::new('lastname', new TranslatableMessage('Nom')),
             EmailField::new('email')->setFormTypeOption('disabled', 'disabled'),
-            ArrayField::new('roles'),
+            ArrayField::new('roles', new TranslatableMessage('Rôles')),
         ];
 
         $password = TextField::new('password')
@@ -77,8 +85,9 @@ class UserCrudController extends AbstractCrudController
         return $formBuilder->addEventListener(FormEvents::POST_SUBMIT, $this->hashPassword());
     }
 
-    private function hashPassword() {
-        return function($event) {
+    private function hashPassword()
+    {
+        return function ($event) {
             $form = $event->getForm();
             if (!$form->isValid()) {
                 return;

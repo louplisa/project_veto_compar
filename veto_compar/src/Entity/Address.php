@@ -42,6 +42,11 @@ class Address
         $this->users = new ArrayCollection();
     }
 
+    public function __toString(): string
+    {
+        return $this->street . ' ' . $this->complement . ' ' . $this->zipCode . ' ' . $this->city;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
