@@ -2,13 +2,14 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\User;
+use App\Entity\HealthCare;
 use App\Factory\AddressFactory;
+use App\Factory\AnimalFactory;
+use App\Factory\HealthCareFactory;
 use App\Factory\UserFactory;
 use App\Factory\VeterinaryClinicFactory;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
-use Faker\Factory;
 use Faker\Generator;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
@@ -47,5 +48,51 @@ class AppFixtures extends Fixture
                 'owner' => [UserFactory::random()],
             ];
         });
+
+
+        $animalsType = [
+            'chien',
+            'chat',
+            'lapin',
+            'hamster',
+            'oiseau',
+            'nac',
+        ];
+
+        foreach ($animalsType as $animalType) {
+            AnimalFactory::createOne([
+                'type' => $animalType,
+            ]);
+        }
+
+        $healthActs = [
+            [
+                'name' => 'stérilisation',
+                'gender' => 'mâle'
+            ],
+            [
+                'name' => 'stérilisation',
+                'gender' => 'femelle'
+            ],
+            [
+                'name' => 'détartrage',
+                'gender' => null
+            ],
+            [
+                'name' => 'consultation',
+                'gender' => null
+            ],
+            [
+                'name' => 'vaccination',
+                'gender' => null
+            ]
+        ];
+
+        foreach ($healthActs as $healthAct) {
+            HealthCareFactory::createOne([
+                'name' => $healthAct['name'],
+                'gender' => $healthAct['gender']
+            ]);
+        }
     }
 }

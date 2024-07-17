@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}VeterinaryClinic index{% endblock %}
+
+{% block body %}
+    <h1>VeterinaryClinic index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for veterinary_clinic in veterinary_clinics %}
+            <tr>
+                <td>{{ veterinary_clinic.id }}</td>
+                <td>{{ veterinary_clinic.name }}</td>
+                <td>{{ veterinary_clinic.email }}</td>
+                <td>
+                    <a href="{{ path('app_veterinary_clinic_show', {'id': veterinary_clinic.id}) }}">show</a>
+                    <a href="{{ path('app_veterinary_clinic_edit', {'id': veterinary_clinic.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_veterinary_clinic_new') }}">Create new</a>
+{% endblock %}
